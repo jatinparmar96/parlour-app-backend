@@ -22,7 +22,7 @@ $api->version('v1', function (Router $api) {
      * Shop Api
      */
     $api->group(['prefix' => 'shop'], function (Router $api) {
-        $api->get('', 'App\\Api\\V1\\Controllers\\ShopController@index');
+        $api->get('', 'App\\Api\\V1\\Controllers\\Master\\ShopController@index');
     });
 
 
