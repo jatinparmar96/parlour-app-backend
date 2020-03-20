@@ -15,7 +15,11 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        return response()->json([
+            'status' => true,
+            'data' => $employees
+        ]);
     }
 
     /**
@@ -36,7 +40,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee();
+        $employee->fill($request->all());
+        $employee->shop_id = 1;
+        $employee->save();
+
+        return response()->json([
+            'status' => true,
+            'data' => $employee
+        ]);
     }
 
     /**
