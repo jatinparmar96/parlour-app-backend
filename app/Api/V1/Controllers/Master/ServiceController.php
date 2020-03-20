@@ -2,12 +2,11 @@
 
 namespace App\Api\V1\Controllers\Master;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Shop;
-use Illuminate\Support\Facades\Auth;
 
-class ShopController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
+        $services = Service::all();
         return response()->json([
             'status' => true,
-            'data' => $shops
+            'data' => $services
         ]);
     }
 
@@ -30,6 +29,7 @@ class ShopController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -40,9 +40,9 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        $shop = new Shop();
+        $shop = new Service();
         $shop->fill($request->all());
-        $shop->user_id = 1;
+        $shop->shop_id = 1;
         $shop->save();
 
         return response()->json([
@@ -54,10 +54,10 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
         //
     }
@@ -65,10 +65,10 @@ class ShopController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
         //
     }
@@ -77,10 +77,10 @@ class ShopController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
         //
     }
@@ -88,10 +88,10 @@ class ShopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Service $service)
     {
         //
     }

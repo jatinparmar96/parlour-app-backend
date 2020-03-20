@@ -21,17 +21,12 @@ $api->version('v1', function (Router $api) {
     /**
      * Shop Api
      */
-    $api->group(['prefix' => 'shop'], function (Router $api) {
-        $api->get('', 'App\\Api\\V1\\Controllers\\Master\\ShopController@index');
-    });
-
+    $api->resource('shops', 'App\\Api\\V1\\Controllers\\Master\\ShopController');
+    $api->resource('customer', 'App\\Api\\V1\\Controllers\\Master\\CustomerController');
+    $api->resource('employee', 'App\\Api\\V1\\Controllers\\Master\\EmployeeController');
+    $api->resource('service', 'App\\Api\\V1\\Controllers\\Master\\ServiceController');
 
     $api->group(['middleware' => 'jwt.auth'], function (Router $api) {
-        $api->get('protected', function () {
-            return response()->json([
-                'message' => 'Access to protected resources granted! You are seeing this text as you provided the token correctly.'
-            ]);
-        });
 
         $api->get('refresh', [
             'middleware' => 'jwt.refresh',

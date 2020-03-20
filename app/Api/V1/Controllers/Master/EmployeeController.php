@@ -2,12 +2,11 @@
 
 namespace App\Api\V1\Controllers\Master;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Shop;
-use Illuminate\Support\Facades\Auth;
 
-class ShopController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
-        return response()->json([
-            'status' => true,
-            'data' => $shops
-        ]);
+        //
     }
 
     /**
@@ -30,6 +25,7 @@ class ShopController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -40,24 +36,16 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        $shop = new Shop();
-        $shop->fill($request->all());
-        $shop->user_id = 1;
-        $shop->save();
-
-        return response()->json([
-            'status' => true,
-            'data' => $shop
-        ]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employee $employee)
     {
         //
     }
@@ -65,10 +53,10 @@ class ShopController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employee $employee)
     {
         //
     }
@@ -77,10 +65,10 @@ class ShopController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Employee $employee)
     {
         //
     }
@@ -88,10 +76,10 @@ class ShopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
         //
     }
